@@ -1507,7 +1507,7 @@
   const FEEDBACK_KEY = 'homework-feedback.v1'; // 没连后端时的本机反馈
   const ACCOUNT_KEY = 'homework-account.v1';   // 登录态（token + 用户名）
   const LOCAL_PASSWORD_KEY = 'homework-class-password'; // 离线模式下自己设的本机密码
-  const ISSUES_URL = 'https://github.com/Len-Stitch/homework-board/issues/new'; // 没接后端时的反馈入口
+  const ISSUES_URL = 'https://github.com/Len-Stitch/homework-board/issues/new'; // 仅 GitHub Pages 版本使用
   const CHECK_SVG = '<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.3 6.2 4.8 8.7 9.7 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const IMAGE_SVG = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="9.5" r="1.5" fill="currentColor"/><path d="m4 17 5-5 4 4 3-3 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
@@ -4159,10 +4159,10 @@
   });
 
   /* ---------- 意见反馈：入口、提交、管理员列表 ---------- */
-  feedbackBtn.addEventListener('click', async () => {
-    // 没接后端（双击打开，或 GitHub 静态托管）时没有地方存反馈，直接去 GitHub 提 Issue
-    if (!apiKind) apiKind = await detectApiKind();
-    if (apiKind === 'offline') {
+  feedbackBtn.addEventListener('click', () => {
+    // 只有部署在 GitHub Pages 上的版本没有后端可存反馈，改为跳转仓库 Issues；
+    // 本地双击、PHP 站点、其它静态托管都保持原来的内置反馈表单
+    if (/(^|\.)github\.io$/i.test(location.hostname)) {
       window.open(ISSUES_URL, '_blank', 'noopener');
       return;
     }
