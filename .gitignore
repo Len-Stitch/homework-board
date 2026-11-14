@@ -1,0 +1,16 @@
+# 运行时数据（账号、登录态、反馈都在这里，绝不提交）
+data/
+
+# 本机密码，不要提交
+config.local.bat
+config.local.php
+
+# 依赖与系统文件
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# 备份与压缩包
+*.bak-*
+*.zip

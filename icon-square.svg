@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="作业清单图标">
+  <defs>
+    <linearGradient id="bg" x1="76" y1="36" x2="448" y2="486" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="0.55" stop-color="#7c5cf5"/>
+      <stop offset="1" stop-color="#9a6cf8"/>
+    </linearGradient>
+    <linearGradient id="check" x1="180" y1="332" x2="344" y2="204" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f9f6e"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="paperShadow" x="-25%" y="-20%" width="150%" height="155%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#2b2470" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <path d="M0 150C0 67 67 0 150 0h212c83 0 150 67 150 150v32c-82-48-193-76-314-76C144 106 71 122 0 150Z" fill="#ffffff" opacity="0.07"/>
+
+  <g filter="url(#paperShadow)">
+    <rect x="116" y="82" width="280" height="348" rx="38" fill="#ffffff"/>
+  </g>
+
+  <rect x="166" y="146" width="180" height="17" rx="8.5" fill="#d9dcf0"/>
+  <rect x="166" y="190" width="134" height="17" rx="8.5" fill="#e6e8f5"/>
+
+  <path d="M176 284 228 336 344 204" fill="none" stroke="url(#check)" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
